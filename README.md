@@ -55,11 +55,24 @@ This project operates under the [ShaneTheBrain Constitution](https://github.com/
 
 ## Quick Start
 
-### 1. Clone
+### 0. Read [SECURITY.md](SECURITY.md) First
+
+**DO NOT fork this repo for personal data.** Forks stay public. Create a **new private repo** instead. Full instructions in [SECURITY.md](SECURITY.md).
+
+### 1. Clone → Create Private Repo
 
 ```bash
-git clone https://github.com/thebardchat/HaloFinance.git
-cd HaloFinance
+# Clone into your own private folder
+git clone https://github.com/thebardchat/HaloFinance.git HaloFinance-private
+cd HaloFinance-private
+
+# Create a NEW private repo on GitHub (github.com/new → PRIVATE)
+git remote remove origin
+git remote add origin https://github.com/YOUR_USERNAME/HaloFinance-private.git
+git push -u origin main
+
+# Copy templates and fill in your data
+cp -r templates/personal/ personal/
 ```
 
 ### 2. Deploy as Claude Project
@@ -270,7 +283,7 @@ MIT — Use it, fork it, adapt it, share it. Financial literacy shouldn't be pay
 
 ## Philosophy
 
-> *A dispatch manager in Alabama shouldn't need to pay $300/hour to understand his own money.*
+> *A working parent shouldn't need to pay $300/hour to understand their own money.*
 
 HaloFinance exists because the tools Wall Street uses to optimize wealth should be accessible to the family trying to figure out if they can afford to put an extra $100 into their retirement this week.
 
