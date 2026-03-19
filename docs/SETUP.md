@@ -4,18 +4,36 @@
 
 ### What You Need
 - A [Claude](https://claude.ai) account (Pro, Team, or Enterprise — for the Projects feature)
+- A [GitHub](https://github.com) account
 - This repository cloned to your computer
 
-### Step 1: Clone the Repo
+---
+
+## Step 0: Create Your Private Repo (DO THIS FIRST)
+
+**DO NOT fork this repo for your personal data.** Forks of public repos stay public — your financial data could be exposed. Instead, create a completely separate private repo.
+
+See **[SECURITY.md](../SECURITY.md)** for the full walkthrough. Quick version:
 
 ```bash
-git clone https://github.com/thebardchat/HaloFinance.git
-cd HaloFinance
+# Clone the public repo into a private folder
+git clone https://github.com/thebardchat/HaloFinance.git HaloFinance-private
+cd HaloFinance-private
+
+# Create a NEW private repo on GitHub (github.com/new → set to PRIVATE)
+# Then point your local clone to YOUR private repo:
+git remote remove origin
+git remote add origin https://github.com/YOUR_USERNAME/HaloFinance-private.git
+git push -u origin main
 ```
 
-### Step 2: Fill In Your Personal Data
+**Verify it's private:** GitHub → Your repo → Settings → General → Danger Zone → should say "Private"
 
-Copy the template files to a `personal/` directory (which is gitignored — your data stays local):
+---
+
+### Step 1: Fill In Your Personal Data
+
+Copy the template files to a `personal/` directory:
 
 ```bash
 cp -r templates/personal/ personal/
@@ -90,12 +108,20 @@ It works the same way — Claude Projects just makes it persistent across conver
 
 ---
 
-## Security Notes
+## Security
 
-- Your `personal/` directory is gitignored — it will NOT be pushed to GitHub
-- Never commit files with real financial data to a public repo
-- Your data stays on your machine and in your Claude Project
-- Claude does not retain conversation data between sessions (unless using Projects)
+**Read [SECURITY.md](../SECURITY.md) before putting any real financial data anywhere.**
+
+Key rules:
+- **NEVER fork** — clone and create a new private repo
+- **ALWAYS verify** your private repo is set to Private on GitHub
+- **NEVER commit** real financial data to this public repo
+- Your `personal/` directory is gitignored in the public repo, but **create a separate private repo** for real data
+- **No collaborators** on your private repo unless you trust them with your SSN
+
+### Future: Pulsar Sentinel
+
+Automated security monitoring for your private HaloFinance repo is coming via Pulsar Sentinel — part of the Angel Cloud ecosystem. It will watch for accidental exposure, unauthorized access, and settings drift.
 
 ---
 
