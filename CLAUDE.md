@@ -179,14 +179,23 @@ Past performance does not predict future results.
 ## For Contributors (Cloning This Repo)
 
 ### Welcome
-HaloFinance is designed to be forked and adapted. The system prompt and knowledge files are tailored for an Alabama-based family with specific circumstances, but the framework works for anyone.
+HaloFinance is designed to be cloned and adapted. The system prompt and knowledge files are tailored for an Alabama-based family with specific circumstances, but the framework works for anyone.
+
+**IMPORTANT: Do NOT fork this repo for personal data.** Forks of public repos stay public. See [SECURITY.md](SECURITY.md) for the safe setup.
 
 ### How to Adapt for Your Situation
 
-**Step 1: Fork the repo**
+**Step 1: Clone into a NEW private repo**
 ```bash
-git clone https://github.com/thebardchat/HaloFinance.git
-cd HaloFinance
+# Clone the public repo into a private folder
+git clone https://github.com/thebardchat/HaloFinance.git HaloFinance-private
+cd HaloFinance-private
+
+# Create a NEW private repo on GitHub (github.com/new → set to PRIVATE)
+# Your repo will be: github.com/YOUR_USERNAME/HaloFinance-private
+git remote remove origin
+git remote add origin https://github.com/YOUR_USERNAME/HaloFinance-private.git
+git push -u origin main
 ```
 
 **Step 2: Update the system prompt**

@@ -6,8 +6,10 @@ HaloFinance uses a **public/private split** to keep your financial data safe whi
 
 | Repo | Visibility | Contains | Purpose |
 |------|-----------|----------|---------|
-| **HaloFinance** | Public | Knowledge files, blank templates, docs | The free tools — anyone can use |
-| **YourName-private** | **PRIVATE** | Your real financial data | Your personal CFO — only you see this |
+| **thebardchat/HaloFinance** | Public | Knowledge files, blank templates, docs | The free tools — anyone can use |
+| **YOUR_USERNAME/HaloFinance-private** | **PRIVATE** | Your real financial data | Your personal CFO — only you see this |
+
+*Each user's private repo lives under their own GitHub account. The name `HaloFinance-private` is the recommended convention, but what matters is: it's a NEW repo, set to PRIVATE, completely disconnected from the public repo.*
 
 ---
 
