@@ -270,7 +270,7 @@ MIT — Use it, fork it, adapt it, share it. Financial literacy shouldn't be pay
 
 ## Philosophy
 
-> *A dispatch manager in Alabama shouldn't need to pay $300/hour to understand his own money.*
+> *A working parent shouldn't need to pay $300/hour to understand their own money.*
 
 HaloFinance exists because the tools Wall Street uses to optimize wealth should be accessible to the family trying to figure out if they can afford to put an extra $100 into their retirement this week.
 

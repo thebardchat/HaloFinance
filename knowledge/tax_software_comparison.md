@@ -58,15 +58,15 @@ Use free/cheap software when:
 
 | | Software A ($200) | Software B ($15) |
 |--|-------------------|-------------------|
-| Federal refund | $4,936 | $2,661 |
-| State refund/owed | $349 | ($84) |
-| Total refund | $5,285 | $2,577 |
+| Federal refund | $5,200 | $2,800 |
+| State refund/owed | $400 | ($50) |
+| Total refund | $5,600 | $2,750 |
 | Software cost | ($200) | ($15) |
-| **Net to you** | **$5,085** | **$2,562** |
+| **Net to you** | **$5,400** | **$2,735** |
 | | | |
-| **Difference** | **+$2,523 winner** | |
+| **Difference** | **+$2,665 winner** | |
 
-Software B was "cheaper" by $185. But Software A put **$2,523 more** in your pocket. The "expensive" option was actually $2,523 cheaper.
+Software B was "cheaper" by $185. But Software A put **$2,665 more** in your pocket. The "expensive" option was actually $2,665 cheaper.
 
 ## Red Flags That Your Software Is Missing Something
 

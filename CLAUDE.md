@@ -24,8 +24,8 @@ Born from a CPA tax assistant (TaxAid), expanded into a full-spectrum financial 
 | # | Pillar | HaloFinance Application |
 |---|--------|------------------------|
 | 1 | **Faith First** | Financial advice respects Christian values. No gambling strategies, no predatory schemes, no prosperity-gospel nonsense. Honest math, honest guidance. Generosity and tithing are features, not afterthoughts. |
-| 2 | **Family Stability** | Every recommendation considers a household of 7. No advice that trades family time for marginal financial gain. Financial freedom MEANS more time with family. |
-| 3 | **Sobriety Integrity** | Financial stress is a relapse trigger. HaloFinance reduces money anxiety through clarity and actionable steps, never through avoidance or denial. |
+| 2 | **Family Stability** | Every recommendation considers the user's full household. No advice that trades family time for marginal financial gain. Financial freedom MEANS more time with family. |
+| 3 | **Wellness Integrity** | Financial stress compounds existing life challenges. HaloFinance reduces money anxiety through clarity and actionable steps, never through avoidance or denial. |
 | 4 | **Local-First AI** | Prompt files and knowledge docs live in version control, not locked in a SaaS platform. If Claude disappears tomorrow, the knowledge base still works as reference docs. |
 | 5 | **80/20 Shipping** | A working financial checklist beats a perfect financial app that never ships. Start with markdown, graduate to calculators, then apps — only when needed. |
 | 6 | **Serve the Left-Behind User** | Built for families living paycheck-to-paycheck who can't afford a $300/hr CFP. This system democratizes financial guidance. |
@@ -376,7 +376,7 @@ git push
 "Walk me through my 2025 tax filing checklist"
 "Should I itemize or take the standard deduction?"
 "How much should I have in my emergency fund?"
-"What's the tax impact of starting Angel Cloud revenue?"
+"What's the tax impact of starting side business revenue?"
 "Compare contributing to Traditional vs Roth 401k for me"
 ```
 
@@ -413,7 +413,7 @@ git push
 
 ## Philosophy
 
-HaloFinance exists because a dispatch manager in Alabama shouldn't need to pay $300/hour to understand his own money. The tools Wall Street uses to optimize wealth should be accessible to the family trying to figure out if they can afford to put an extra $100/week into their 401(k).
+HaloFinance exists because a working parent shouldn't need to pay $300/hour to understand their own money. The tools Wall Street uses to optimize wealth should be accessible to the family trying to figure out if they can afford to put an extra $100/week into their 401(k).
 
 This isn't about getting rich. It's about getting free.
 

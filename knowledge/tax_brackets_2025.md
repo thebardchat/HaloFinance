@@ -39,7 +39,7 @@ Remember: "Taxable income" = gross wages minus pre-tax deductions (401k, insuran
 **FALSE.** If you earn $1 over a bracket line, only that $1 gets taxed at the higher rate. The rest stays at the lower rates. You always take home more by earning more.
 
 ### "I should turn down overtime to stay in a lower bracket"
-**FALSE.** This is the most expensive myth in America. Even if OT pushes you into the 22% bracket, you keep 78 cents of every OT dollar in that bracket. That's still $32.18/hr take-home on a $41.25 OT rate. You'd turn down $32/hr because it's not $33? No.
+**FALSE.** This is the most expensive myth in America. Even if OT pushes you into the 22% bracket, you keep 78 cents of every OT dollar in that bracket. That's still $35.10/hr take-home on a $45/hr OT rate. You'd turn down $35/hr because it's not $36? No.
 
 ### "My whole paycheck gets taxed at my bracket rate"
 **FALSE.** If you're "in the 22% bracket," that doesn't mean 22% of your income goes to taxes. It means only the portion ABOVE $96,950 (MFJ) is taxed at 22%. Everything below is still taxed at 10% and 12%.
