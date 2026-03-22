@@ -1,11 +1,13 @@
-# 💫 HaloFinance
+<div align="center"><img src=".github/assets/banner.png" alt="HaloFinance" width="100%"></div>
+
+[![Constitution](https://img.shields.io/badge/Constitution-ShaneTheBrain-blue)](https://github.com/thebardchat/constitution)
+[![License](https://img.shields.io/badge/license-MIT-green)](#license)
+[![Built With](https://img.shields.io/badge/built%20with-Claude%20by%20Anthropic-orange)](https://claude.ai)
+
+# HaloFinance
 
 **AI-powered Financial Consultant for Working Families**
 *Part of the [Angel Cloud](https://github.com/thebardchat) Ecosystem*
-
-[![Constitution](https://img.shields.io/badge/governed%20by-ShaneTheBrain%20Constitution-blue)](https://github.com/thebardchat/constitution)
-[![License](https://img.shields.io/badge/license-MIT-green)](#license)
-[![Built With](https://img.shields.io/badge/built%20with-Claude%20by%20Anthropic-orange)](https://claude.ai)
 
 ---
 
@@ -309,3 +311,11 @@ If what I'm building matters to you — local AI for real people, tools for the 
 - **Star the repos** — visibility matters for projects like this
 
 Built by **Shane Brazelton** · Co-built with **Claude** (Anthropic) · Hazel Green, Alabama
+
+---
+
+<div align="center">
+
+*Part of the [ShaneBrain Ecosystem](https://github.com/thebardchat) · Built under the [Constitution](https://github.com/thebardchat/constitution)*
+
+</div>
