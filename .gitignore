@@ -13,3 +13,8 @@ __pycache__/
 # Users should copy templates/personal/ to /personal/ and fill in real data there
 # The /personal/ directory is ignored so your real data never gets pushed
 /personal/
+
+# Database files — contain real financial data, never push
+*.db
+*.db-wal
+*.db-shm

@@ -1,0 +1,16 @@
+[Unit]
+Description=HaloFinance Ledger — Personal financial dashboard
+After=network.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/path/to/HaloFinance
+ExecStart=/usr/bin/python3 ledger.py
+Restart=on-failure
+RestartSec=10
+# Optional: set password via env instead of hardcoding
+# Environment=HALO_PASSWORD=your-password-here
+
+[Install]
+WantedBy=multi-user.target
