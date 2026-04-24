@@ -1,109 +1,1048 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>HaloFinance</title>
-<meta name="description" content="Budgeting, forecasting, and debt strategy — built for people who actually need it."/>
-<style>
-:root{--c:#39ff14;--a:#ffe600;--bg:#080c10;--panel:#0d1520;--border:#1a2d40;--dim:#7a9ab8;}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Courier New',monospace;background:var(--bg);color:#e8f4fd;overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,245,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
-nav{position:sticky;top:0;z-index:100;background:rgba(8,12,16,0.93);border-bottom:1px solid var(--c);backdrop-filter:blur(12px);padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;}
-.logo{font-size:0.9rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:var(--c);text-shadow:0 0 10px var(--c);}
-.nav-link{color:var(--dim);text-decoration:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
-.nav-link:hover{color:var(--c);}
-.hero{position:relative;z-index:1;min-height:92vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;}
-.hero-icon{font-size:3.5rem;margin-bottom:1rem;}
-.hero-badge{display:inline-block;font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--a);border:1px solid var(--a);padding:0.25rem 0.9rem;margin-bottom:1.5rem;animation:pulse 2s infinite;}
-@keyframes pulse{0%,100%{box-shadow:0 0 4px var(--a);}50%{box-shadow:0 0 16px var(--a);}}
-h1{font-size:clamp(2rem,6vw,4.5rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.01em;color:var(--c);text-shadow:0 0 20px var(--c),0 0 60px color-mix(in srgb,var(--c) 30%,transparent);margin-bottom:0.75rem;}
-.subtitle{font-size:clamp(0.9rem,2vw,1.15rem);color:var(--dim);max-width:580px;line-height:1.65;margin-bottom:0.75rem;}
-.tagline{font-size:clamp(1rem,2.5vw,1.3rem);color:var(--a);text-shadow:0 0 8px var(--a);margin-bottom:1.5rem;font-weight:700;}
-.cta-row{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:1rem;}
-.btn{padding:0.75rem 2rem;font-family:inherit;font-size:0.85rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-block;transition:all 0.2s;}
-.btn-primary{background:var(--c);color:#080c10;border:none;box-shadow:0 0 18px color-mix(in srgb,var(--c) 40%,transparent);}
-.btn-primary:hover{filter:brightness(1.2);box-shadow:0 0 30px var(--c);transform:translateY(-2px);}
-.btn-ghost{background:transparent;color:#e8f4fd;border:1px solid var(--border);}
-.btn-ghost:hover{border-color:var(--c);color:var(--c);}
-.stats{position:relative;z-index:1;background:var(--panel);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.25rem 2rem;display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;}
-.stat-num{font-size:1.8rem;font-weight:900;color:var(--c);text-shadow:0 0 8px var(--c);}
-.stat-lbl{font-size:0.65rem;color:var(--dim);letter-spacing:0.15em;text-transform:uppercase;margin-top:0.15rem;}
-section{position:relative;z-index:1;padding:4rem 2rem;max-width:1000px;margin:0 auto;}
-.sec-label{font-size:0.68rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--a);margin-bottom:0.6rem;}
-.sec-title{font-size:clamp(1.4rem,3.5vw,2.4rem);font-weight:900;text-transform:uppercase;margin-bottom:2rem;}
-.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.25rem;}
-.feature-card{background:var(--panel);border:1px solid var(--border);padding:1.75rem 1.5rem;border-left:3px solid var(--fc,var(--c));transition:transform 0.2s,border-color 0.2s;}
-.feature-card:hover{transform:translateY(-3px);border-color:var(--fc,var(--c));}
-.feature-title{font-size:0.88rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.5rem;color:#e8f4fd;}
-.feature-desc{font-size:0.82rem;color:var(--dim);line-height:1.6;}
-.neon-divider{position:relative;z-index:1;height:1px;background:linear-gradient(90deg,transparent,var(--c),transparent);opacity:0.25;}
-footer{position:relative;z-index:1;background:var(--panel);border-top:1px solid var(--border);padding:2.5rem 2rem;text-align:center;}
-.footer-logo{font-size:1rem;font-weight:900;letter-spacing:0.15em;text-transform:uppercase;color:var(--c);text-shadow:0 0 8px var(--c);}
-.footer-links{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0;}
-.footer-links a{color:var(--dim);text-decoration:none;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
-.footer-links a:hover{color:var(--c);}
-.footer-copy{font-size:0.68rem;color:#3a5570;margin-top:1rem;line-height:1.8;}
-.referral{margin-top:0.75rem;font-size:0.68rem;color:var(--dim);}
-.referral a{color:var(--c);text-decoration:none;}
-@media(max-width:600px){nav .nav-link{display:none;}.stats{gap:2rem;}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HaloFinance — Your $300/hr Financial Advisor, For Free</title>
+  <meta name="description" content="Free, open-source financial knowledge base for working families. Tax strategy, debt payoff, retirement basics, W-4 explainers — powered by Claude AI." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset ─── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ─── Design tokens ─── */
+    :root {
+      --bg: #02050c;
+      --panel: #12151f;
+      --border: #1f2434;
+      --amber: #f5b400;
+      --green: #22c55e;
+      --text: #e8eaf0;
+      --text-sec: #9da3b3;
+      --text-dim: #5c6274;
+      --font-display: 'Unbounded', sans-serif;
+      --font-body: 'Instrument Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    /* ─── Base ─── */
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── Page background ─── */
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 90% 70% at 50% 45%, #0a1830 0%, #050a18 55%, #02050c 100%);
+      background-image:
+        radial-gradient(ellipse 90% 70% at 50% 45%, #0a1830 0%, #050a18 55%, #02050c 100%),
+        linear-gradient(rgba(40,90,160,.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(40,90,160,.18) 1px, transparent 1px);
+      background-size: auto, 64px 64px, 64px 64px;
+      pointer-events: none;
+    }
+    .vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(2,5,12,.85) 100%);
+      pointer-events: none;
+    }
+    #rain-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 2;
+      pointer-events: none;
+      opacity: 0.35;
+    }
+
+    /* ─── Layout wrapper ─── */
+    .page-wrap {
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ─── Nav ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(5,6,10,.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      background: linear-gradient(135deg, #f5b400 0%, #ffd84d 45%, #f5b400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo .halo-icon {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--amber);
+      box-shadow: 0 0 10px rgba(245,180,0,.5), inset 0 0 6px rgba(245,180,0,.15);
+      -webkit-text-fill-color: initial;
+      background: transparent;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-sec);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links .nav-cta {
+      color: var(--amber);
+      border: 1px solid rgba(245,180,0,.35);
+      padding: 0.4rem 1rem;
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .nav-links .nav-cta:hover {
+      background: rgba(245,180,0,.08);
+      border-color: var(--amber);
+      color: var(--amber);
+    }
+
+    /* ─── Section container ─── */
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── Section marker ─── */
+    .section-marker {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6em;
+      margin-bottom: 1rem;
+    }
+    .section-marker::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 1px;
+      background: var(--amber);
+    }
+
+    /* ─── Hero ─── */
+    .hero {
+      padding: 7rem 0 5rem;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.2em;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: inline-block;
+      width: 40px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber));
+    }
+    .hero-eyebrow::after {
+      background: linear-gradient(90deg, var(--amber), transparent);
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(180deg, #ffffff 0%, #d4d7e0 45%, #6c7080 55%, #2a2d38 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-headline .amber-word {
+      background: linear-gradient(135deg, #f5b400 0%, #ffd84d 50%, #f5b400 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-lead {
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      font-size: 1.1rem;
+      color: var(--text-sec);
+      line-height: 1.7;
+    }
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background: var(--amber);
+      color: #0a0800;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+      box-shadow: 0 0 24px rgba(245,180,0,.3);
+    }
+    .btn-primary:hover {
+      background: #ffd84d;
+      box-shadow: 0 0 36px rgba(245,180,0,.5);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background: transparent;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.9375rem;
+      padding: 0.75rem 1.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .btn-secondary:hover {
+      border-color: var(--amber);
+      color: var(--amber);
+      background: rgba(245,180,0,.04);
+    }
+
+    /* ─── Hero glow orb ─── */
+    .hero-orb {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(ellipse, rgba(245,180,0,.09) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+    .hero { position: relative; }
+
+    /* ─── Stats bar ─── */
+    .stats-bar {
+      padding: 2.5rem 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6rem;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+      text-shadow: 0 0 24px rgba(245,180,0,.4);
+    }
+    .stat-number.green { color: var(--green); text-shadow: 0 0 24px rgba(34,197,94,.4); }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ─── Sections ─── */
+    section { padding: 5rem 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, #ffffff 0%, #d4d7e0 45%, #6c7080 55%, #2a2d38 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub {
+      color: var(--text-sec);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ─── Philosophy cards ─── */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .phil-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+      position: relative;
+    }
+    .phil-card:hover {
+      border-color: var(--amber);
+      box-shadow: 0 0 32px rgba(245,180,0,.12);
+      transform: translateY(-3px);
+    }
+    .phil-card.green-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 0 32px rgba(34,197,94,.12);
+    }
+    .phil-card-accent {
+      height: 3px;
+      background: var(--amber);
+    }
+    .phil-card.green-card .phil-card-accent {
+      background: var(--green);
+    }
+    .phil-card-body {
+      padding: 1.75rem 1.5rem 2rem;
+    }
+    .phil-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 1rem;
+    }
+    .phil-card.green-card .phil-tag { color: var(--green); }
+    .phil-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .phil-desc {
+      color: var(--text-sec);
+      font-size: 0.9375rem;
+      line-height: 1.65;
+    }
+    .phil-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ─── How It Works ─── */
+    .how-section {
+      background: linear-gradient(180deg, transparent, rgba(10,24,48,.5), transparent);
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    .step-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      position: relative;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+    .step-card:hover {
+      border-color: rgba(245,180,0,.4);
+      box-shadow: 0 0 24px rgba(245,180,0,.08);
+    }
+    .step-number {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 3rem;
+      color: rgba(245,180,0,.12);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      user-select: none;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+    .step-desc {
+      color: var(--text-sec);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+    .step-connector {
+      position: absolute;
+      top: 2.5rem;
+      right: -0.7rem;
+      color: var(--border);
+      font-size: 1.2rem;
+      z-index: 1;
+    }
+    .step-card:last-child .step-connector { display: none; }
+
+    /* ─── For Who ─── */
+    .forwho-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+    }
+    .forwho-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+    }
+    .forwho-card:hover {
+      border-color: rgba(245,180,0,.35);
+      box-shadow: 0 0 28px rgba(245,180,0,.08);
+      transform: translateY(-2px);
+    }
+    .forwho-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: rgba(245,180,0,.08);
+      border: 1px solid rgba(245,180,0,.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+    .forwho-content {}
+    .forwho-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.01em;
+    }
+    .forwho-desc {
+      color: var(--text-sec);
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* ─── File list callout ─── */
+    .file-callout {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem 2rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+    .file-callout-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .file-callout-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .file-callout-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid rgba(245,180,0,.3);
+      padding: 0.2em 0.6em;
+      border-radius: 4px;
+    }
+    .file-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+    }
+    .file-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6em;
+      padding: 0.35rem 0;
+      border-bottom: 1px solid rgba(31,36,52,.6);
+    }
+    .file-row:last-child { border-bottom: none; }
+    .file-name {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--amber);
+      white-space: nowrap;
+    }
+    .file-desc {
+      font-size: 0.8125rem;
+      color: var(--text-sec);
+    }
+
+    /* ─── CTA banner ─── */
+    .cta-banner {
+      padding: 5rem 0;
+    }
+    .cta-box {
+      background: linear-gradient(135deg, rgba(20,25,45,.9) 0%, rgba(14,18,30,.9) 100%);
+      border: 1px solid rgba(245,180,0,.25);
+      border-radius: 16px;
+      padding: 4rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(245,180,0,.06);
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(245,180,0,.5), transparent);
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+    }
+    .cta-sub {
+      color: var(--text-sec);
+      font-size: 1.0625rem;
+      margin-bottom: 2rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-glow {
+      position: absolute;
+      bottom: -60px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 400px;
+      height: 200px;
+      background: radial-gradient(ellipse, rgba(245,180,0,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ─── Footer ─── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 0;
+    }
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+    }
+    .footer-brand strong {
+      color: var(--text-sec);
+      font-weight: 500;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.8125rem;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--amber); }
+    .footer-badge {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+      padding: 0.3em 0.8em;
+      border-radius: 20px;
+    }
+
+    /* ─── Divider ─── */
+    .divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ─── Amber text ─── */
+    .text-amber { color: var(--amber); }
+    .text-green { color: var(--green); }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 900px) {
+      .philosophy-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .step-connector { display: none; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3) { border-right: 1px solid var(--border); }
+      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .file-cols { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .forwho-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links .nav-kb { display: none; }
+      .cta-box { padding: 2.5rem 1.5rem; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
-<nav>
-  <div class="logo">💰 HaloFinance</div>
-  <a class="nav-link" href="https://github.com/thebardchat/HaloFinance" target="_blank">GitHub</a>
-</nav>
-<div class="hero">
-  <div class="hero-icon">💰</div>
-  <div class="hero-badge">⚡ ShaneBrain Ecosystem</div>
-  <h1>HaloFinance</h1>
-  <div class="tagline">AI-powered financial guidance for working families.</div>
-  <p class="subtitle">Budgeting, forecasting, and debt strategy — built for people who actually need it.</p>
-  <div class="cta-row">
-    <a href="https://github.com/thebardchat/HaloFinance" class="btn btn-primary" target="_blank">View on GitHub</a>
-    <a href="https://thebardchat.github.io" class="btn btn-ghost">ShaneBrain Hub</a>
-  </div>
-</div>
-<div class="neon-divider"></div>
-<section>
-  <p class="sec-label">// Core Features</p>
-  <h2 class="sec-title">What this does.</h2>
-  <div class="features-grid">
-        <div class="feature-card" style="--fc:#39ff14">
-          <div class="feature-title">Budget Intelligence</div>
-          <div class="feature-desc">AI-driven budget tracking that flags problems before they become crises.</div>
+
+  <!-- Background layers -->
+  <div class="page-bg"></div>
+  <div class="vignette"></div>
+  <canvas id="rain-canvas"></canvas>
+
+  <div class="page-wrap">
+
+    <!-- ─── Nav ─── -->
+    <nav>
+      <a href="#" class="nav-logo">
+        <div class="halo-icon"></div>
+        HALOFINANCE
+      </a>
+      <ul class="nav-links">
+        <li class="nav-kb"><a href="https://github.com/thebardchat/HaloFinance/tree/main/knowledge" target="_blank" rel="noopener">Knowledge Base</a></li>
+        <li><a href="https://github.com/thebardchat/HaloFinance" target="_blank" rel="noopener" class="nav-cta">Fork on GitHub</a></li>
+      </ul>
+    </nav>
+
+    <!-- ─── Hero ─── -->
+    <section class="hero">
+      <div class="hero-orb"></div>
+      <div class="container">
+        <div class="hero-eyebrow">PERSONAL FINANCE · AI-POWERED</div>
+        <h1 class="hero-headline">
+          Your $300/hr financial advisor,<br>
+          <span class="amber-word">for free.</span>
+        </h1>
+        <p class="hero-lead">
+          HaloFinance is a free, open-source knowledge base that gives Claude full financial context for a working family — tax strategy, debt payoff, retirement, W-4 explainers, and Alabama tax rules — plus personal templates for your real numbers.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://github.com/thebardchat/HaloFinance" target="_blank" rel="noopener" class="btn-primary">
+            Fork the Template &rarr;
+          </a>
+          <a href="https://github.com/thebardchat/HaloFinance/tree/main/knowledge" target="_blank" rel="noopener" class="btn-secondary">
+            View Knowledge Base
+          </a>
         </div>
-        <div class="feature-card" style="--fc:#ffe600">
-          <div class="feature-title">Debt Strategy</div>
-          <div class="feature-desc">Snowball, avalanche, and custom payoff plans built around your actual situation.</div>
+      </div>
+    </section>
+
+    <!-- ─── Stats bar ─── -->
+    <div class="stats-bar">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Knowledge Files</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Personal Templates</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number green">$0</div>
+            <div class="stat-label">Cost</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">5<span style="font-size:1.5rem;opacity:.7">min</span></div>
+            <div class="stat-label">Setup Time</div>
+          </div>
         </div>
-        <div class="feature-card" style="--fc:#39ff14">
-          <div class="feature-title">Forecasting</div>
-          <div class="feature-desc">Chase statement analysis, income projections, and scenario modeling.</div>
+      </div>
+    </div>
+
+    <!-- ─── Philosophy ─── -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-marker">Philosophy</div>
+          <h2 class="section-title">Three Rules. Zero Compromise.</h2>
+          <p class="section-sub">Every recommendation in HaloFinance follows the same three-word framework.</p>
         </div>
-        <div class="feature-card" style="--fc:#b44fff">
-          <div class="feature-title">Family-First Design</div>
-          <div class="feature-desc">Built for working families in North Alabama, not hedge funds.</div>
+        <div class="philosophy-grid">
+
+          <div class="phil-card">
+            <div class="phil-card-accent"></div>
+            <div class="phil-card-body">
+              <span class="phil-icon">&#9889;</span>
+              <div class="phil-tag">Principle 01</div>
+              <div class="phil-title">Easier</div>
+              <p class="phil-desc">Fewer steps, less friction. The path of least resistance to the best outcome. If two options produce the same result, the simpler one wins — every time.</p>
+            </div>
+          </div>
+
+          <div class="phil-card">
+            <div class="phil-card-accent"></div>
+            <div class="phil-card-body">
+              <span class="phil-icon">&#128293;</span>
+              <div class="phil-tag">Principle 02</div>
+              <div class="phil-title">Faster</div>
+              <p class="phil-desc">Quick execution beats perfect optimization. Done beats perfect every time. A plan you execute this week is worth more than a perfect plan you start next year.</p>
+            </div>
+          </div>
+
+          <div class="phil-card green-card">
+            <div class="phil-card-accent"></div>
+            <div class="phil-card-body">
+              <span class="phil-icon">&#128181;</span>
+              <div class="phil-tag">Principle 03</div>
+              <div class="phil-title">Biggest Return</div>
+              <p class="phil-desc" style="color: var(--text-sec);">Every recommendation leads with the option that puts the most money in your pocket. Maximum impact, minimum wasted motion.</p>
+            </div>
+          </div>
+
         </div>
-  </div>
-</section>
-<div class="neon-divider"></div>
-<footer>
-  <div class="footer-logo">💰 HaloFinance</div>
-  <div class="footer-links">
-    <a href="https://github.com/thebardchat/HaloFinance" target="_blank">GitHub</a>
-    <a href="https://github.com/thebardchat" target="_blank">TheBardChat</a>
-    <a href="https://thebardchat.github.io" target="_blank">ShaneBrain Hub</a>
-  </div>
-  <div class="footer-copy">
-    &copy; 2026 Shane Brazelton &amp; Claude (Anthropic) — Built together, not alone.<br/>
-    ShaneBrain Ecosystem | Hazel Green, AL
-  </div>
-  <div class="referral">
-    Powered by AI: <a href="https://claude.ai/referral/4fAMYN9Ing" target="_blank">Try Claude — the AI that helped build this</a>
-  </div>
-</footer>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ─── How It Works ─── -->
+    <section class="how-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-marker">How It Works</div>
+          <h2 class="section-title">Set up in five minutes flat.</h2>
+          <p class="section-sub">No accounts, no subscriptions, no waiting. Fork it, load it, use it.</p>
+        </div>
+        <div class="steps-grid">
+
+          <div class="step-card">
+            <div class="step-connector">&rarr;</div>
+            <div class="step-number">01</div>
+            <div class="step-title">Fork the Repo</div>
+            <p class="step-desc">Clone HaloFinance into a <strong style="color:var(--text)">new private repo</strong> on your GitHub account. Keep it private — your numbers stay yours.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-connector">&rarr;</div>
+            <div class="step-number">02</div>
+            <div class="step-title">Load Claude</div>
+            <p class="step-desc">Open a <strong style="color:var(--text)">Claude Project</strong> and upload all files from the <code style="font-family:var(--font-mono);font-size:.8em;color:var(--amber)">knowledge/</code> folder. Claude now has full financial context.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-connector">&rarr;</div>
+            <div class="step-number">03</div>
+            <div class="step-title">Add Your Numbers</div>
+            <p class="step-desc">Fill in the <code style="font-family:var(--font-mono);font-size:.8em;color:var(--amber)">personal/</code> templates with your real income, debts, and goals. Upload those too.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">04</div>
+            <div class="step-title">Ask Anything</div>
+            <p class="step-desc">Taxes, debt payoff order, retirement contributions, W-4 adjustments, budgeting — Claude now answers with <em style="color:var(--text)">your</em> context, not generic advice.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ─── For Who ─── -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-marker">Who It's For</div>
+          <h2 class="section-title">Built for real people, not Wall Street.</h2>
+          <p class="section-sub">If you've ever wished you could just ask a financial expert without the hourly rate, this is for you.</p>
+        </div>
+        <div class="forwho-grid">
+
+          <div class="forwho-card">
+            <div class="forwho-icon">&#128106;</div>
+            <div class="forwho-content">
+              <div class="forwho-title">Working Families</div>
+              <p class="forwho-desc">Two incomes, kids, a mortgage, and never enough hours in the day. HaloFinance gives you a trusted advisor on your schedule — at 11pm if needed.</p>
+            </div>
+          </div>
+
+          <div class="forwho-card">
+            <div class="forwho-icon">&#128179;</div>
+            <div class="forwho-content">
+              <div class="forwho-title">People Carrying Debt</div>
+              <p class="forwho-desc">Credit cards, car loans, medical bills — get a clear payoff strategy (avalanche vs. snowball vs. hybrid) with your exact numbers, not a generic chart.</p>
+            </div>
+          </div>
+
+          <div class="forwho-card">
+            <div class="forwho-icon">&#128203;</div>
+            <div class="forwho-content">
+              <div class="forwho-title">Tax-Confused Filers</div>
+              <p class="forwho-desc">W-4 allowances, standard vs. itemized, Alabama-specific deductions — explained in plain English, tuned to your situation, not a textbook example.</p>
+            </div>
+          </div>
+
+          <div class="forwho-card">
+            <div class="forwho-icon">&#127919;</div>
+            <div class="forwho-content">
+              <div class="forwho-title">People Who Want a Plan</div>
+              <p class="forwho-desc">No goal is too small. Emergency fund, first 401(k) contribution, kids' college savings — start somewhere smart and build from there.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- File list callout -->
+        <div class="file-callout">
+          <div class="file-callout-header">
+            <div class="file-callout-title">What's Inside the Repo</div>
+            <div class="file-callout-badge">knowledge/ &amp; personal/</div>
+          </div>
+          <div class="file-cols">
+            <div>
+              <div class="file-row">
+                <span class="file-name">tax-fundamentals.md</span>
+                <span class="file-desc">Federal brackets, deductions, credits</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">alabama-taxes.md</span>
+                <span class="file-desc">State rates, exemptions, filing rules</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">w4-explainer.md</span>
+                <span class="file-desc">How to fill it out without overpaying</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">debt-strategy.md</span>
+                <span class="file-desc">Avalanche, snowball, hybrid methods</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">retirement-basics.md</span>
+                <span class="file-desc">401k, IRA, Roth, contribution limits</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">budget-frameworks.md</span>
+                <span class="file-desc">50/30/20, zero-based, envelope</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">emergency-fund.md</span>
+                <span class="file-desc">How much, where to keep it, when to use it</span>
+              </div>
+            </div>
+            <div>
+              <div class="file-row">
+                <span class="file-name">personal/income.md</span>
+                <span class="file-desc">Your salary, side income, benefits</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">personal/debts.md</span>
+                <span class="file-desc">Every balance, rate, and minimum</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">personal/expenses.md</span>
+                <span class="file-desc">Monthly fixed and variable spending</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">personal/goals.md</span>
+                <span class="file-desc">Short-term and long-term targets</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">personal/tax-situation.md</span>
+                <span class="file-desc">Filing status, dependents, withholding</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">personal/retirement.md</span>
+                <span class="file-desc">Current balances, contribution rates</span>
+              </div>
+              <div class="file-row">
+                <span class="file-name">+ 2 more templates</span>
+                <span class="file-desc">Insurance, assets</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ─── Final CTA ─── -->
+    <div class="cta-banner">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-glow"></div>
+          <div class="section-marker" style="justify-content:center; margin-bottom:1.25rem;">Get Started Free</div>
+          <h2 class="cta-title">Stop paying for advice you can get for free.</h2>
+          <p class="cta-sub">Fork the repo, load your numbers, and start asking. No credit card. No account. No catch.</p>
+          <div class="hero-ctas">
+            <a href="https://github.com/thebardchat/HaloFinance" target="_blank" rel="noopener" class="btn-primary">
+              Fork on GitHub &rarr;
+            </a>
+            <a href="https://github.com/thebardchat/HaloFinance/blob/main/README.md" target="_blank" rel="noopener" class="btn-secondary">
+              Read the Docs
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Footer ─── -->
+    <footer>
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            Built by <strong>Shane Brazelton</strong> &middot; Hazel Green, Alabama &middot; MIT License
+          </div>
+          <ul class="footer-links">
+            <li><a href="https://github.com/thebardchat/HaloFinance" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a href="https://github.com/thebardchat/HaloFinance/blob/main/LICENSE" target="_blank" rel="noopener">License</a></li>
+            <li><a href="https://github.com/thebardchat/HaloFinance/issues" target="_blank" rel="noopener">Issues</a></li>
+          </ul>
+          <div class="footer-badge">MIT LICENSE</div>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /page-wrap -->
+
+  <!-- ─── Binary rain JS ─── -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('rain-canvas');
+      const ctx = canvas.getContext('2d');
+      const AMBER = '#f5b400';
+      const GREEN = '#22c55e';
+      const CHARS = '01';
+      const FONT_SIZE = 13;
+      let cols, drops;
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        cols = Math.floor(canvas.width / FONT_SIZE);
+        drops = new Array(cols).fill(1).map(() => Math.floor(Math.random() * -80));
+      }
+      resize();
+      window.addEventListener('resize', resize);
+
+      function draw() {
+        ctx.fillStyle = 'rgba(2,5,12,0.055)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = FONT_SIZE + 'px "JetBrains Mono", monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const char = CHARS[Math.floor(Math.random() * CHARS.length)];
+          const x = i * FONT_SIZE;
+          const y = drops[i] * FONT_SIZE;
+
+          // Alternate amber / green by column with slight randomness
+          const useAmber = (i % 3 !== 2);
+          ctx.fillStyle = useAmber ? AMBER : GREEN;
+
+          ctx.fillText(char, x, y);
+
+          if (y > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 50);
+    })();
+  </script>
+
 </body>
 </html>
